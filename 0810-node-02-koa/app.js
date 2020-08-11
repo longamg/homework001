@@ -1,17 +1,23 @@
-const koa = require("koa");
-const KoaRouter = require("koa-router");
-const fs = require("fs");
+const koa = require('koa')
+const KoaRouter = require('koa-router')
 
 // 实例化服务器
-const server = new koa();
-const router = new KoaRouter();
+const app = new koa()
 
-router.get("/", (ctx) => {
-	ctx.body = "首页";
-});
+const router = new KoaRouter()
 
-server.use(router.routes());
-server.use(router.allowedMethods());
-server.listen("8081", function () {
-	console.log("开启了8081端口...");
-});
+router.get('/', (ctx) => {
+    ctx.body = '首页'
+})
+
+router.get('/getData', (ctx) => {
+    ctx.body = {
+        name: 'koa',
+    }
+})
+
+app.use(router.routes())
+app.use(router.allowedMethods())
+app.listen('8080', function () {
+    console.log('开启了8080端口...')
+})
