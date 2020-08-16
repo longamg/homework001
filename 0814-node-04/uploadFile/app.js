@@ -1,19 +1,12 @@
 const Koa = require("koa");
 const KoaRouter = require("koa-router");
-const KoaStaticCache = require("koa-static-cache");
+const KoaStatic = require("koa-static");
 const koaBody = require("koa-body");
 
 const app = new Koa();
 const router = new KoaRouter();
 
-// 静态资源处理
-app.use(
-	KoaStaticCache("./static", {
-		prefix: "/static",
-		gzip: true,
-		dynamic: true,
-	})
-);
+app.use(KoaStatic(__dirname + "/static"));
 
 app.use(
 	koaBody({
@@ -28,12 +21,7 @@ app.use(
 	})
 );
 
-router.get("/", (ctx) => {
-	ctx.body = "首页";
-});
-
 router.post("/upload", (ctx) => {
-	console.log(ctx.request.body);
 	ctx.body = "上传成功";
 });
 
