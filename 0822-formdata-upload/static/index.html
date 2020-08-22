@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body>
+		<input type="file" class="myfile" />
+		<button>上传文件</button>
+		<div class="img-show"></div>
+	</body>
+	<script>
+		let imgeles = document.querySelector(".img-show");
+		document.querySelector("button").onclick = function () {
+			let file = document.querySelector(".myfile").files[0];
+			console.log(file);
+			let form = new FormData();
+			form.append("img", file);
+			form.append("name", "zhangsan");
+
+			let xhr = new XMLHttpRequest();
+			xhr.open("post", "/upload", true);
+			xhr.onload = function () {
+				console.log(xhr.responseText);
+				imgeles.innerHTML = `<img src='/upload/${file.name}' style='width:100px;' />`;
+			};
+			xhr.send(form);
+		};
+	</script>
+</html>

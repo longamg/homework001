@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body>
+		<button>发送post ajax</button>
+	</body>
+	<script>
+		document.querySelector("button").onclick = function () {
+			let xhr = new XMLHttpRequest();
+			xhr.open("post", "/post", true);
+			xhr.onload = function () {
+				console.log(xhr.responseText);
+			};
+			let data = JSON.stringify({
+				name: "wangwu",
+				age: 30,
+			});
+			xhr.setRequestHeader("content-type", "application/json");
+			xhr.send(data);
+		};
+	</script>
+</html>
