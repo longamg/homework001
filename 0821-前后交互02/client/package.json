@@ -1,0 +1,19 @@
+{
+	"name": "client",
+	"version": "1.0.0",
+	"description": "",
+	"main": "app.js",
+	"scripts": {
+		"start": "nodemon app.js"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"koa": "^2.13.0",
+		"koa-server-http-proxy": "^0.1.0",
+		"koa-static-cache": "^5.1.4"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.4"
+	}
+}
