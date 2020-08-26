@@ -1,0 +1,18 @@
+{
+	"name": "0826-webpack-01",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "webpack"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {},
+	"devDependencies": {
+		"css-loader": "^4.2.2",
+		"file-loader": "^6.0.0",
+		"webpack": "^4.44.1",
+		"webpack-cli": "^3.3.12"
+	}
+}
