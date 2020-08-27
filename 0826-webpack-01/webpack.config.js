@@ -22,7 +22,7 @@ module.exports = {
 							//打包后的存放位置
 							outputPath: "./images",
 							// 打包后文件的 url
-							publicPath: "./images",
+							publicPath: "../dist/images",
 						},
 					},
 				],
