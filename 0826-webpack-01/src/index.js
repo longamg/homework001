@@ -3,8 +3,8 @@ import logo from "./images/logo.png";
 import css from "./css/css.css";
 
 console.log(fn);
-console.log(logo);
-console.log(css);
+// console.log(logo);
+// console.log(css);
 
 let img = new Image();
 img.src = logo;
