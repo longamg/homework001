@@ -1,32 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-		<script src="./KPromise.js"></script>
-	</head>
 
-	<body></body>
-	<script>
-		// 主线程 异步线程；
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./KPromise.js"></script>
+</head>
 
-		console.log("111");
+<body></body>
+<script>
+    // 主线程 异步线程；
 
-		setTimeout(() => {
-			console.log("222");
-		});
+    console.log("script1");
 
-		for (let i = 0; i < 1000; i++) {
-			if (i === 999) {
-				console.log("333");
-			}
-		}
+    setTimeout(() => {
+        console.log("timeout1");
+    });
 
-		setTimeout(() => {
-			console.log("444");
-		});
+    for (let i = 0; i < 1000; i++) {
+        if (i === 999) {
+            console.log("for1");
+        }
+    }
 
-		console.log("555");
-	</script>
+    setTimeout(() => {
+        console.log("timeout2");
+    });
+
+    console.log("script2");
+</script>
+
 </html>

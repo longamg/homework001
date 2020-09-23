@@ -10,7 +10,7 @@ class KPromise {
 
         handle(this._resolve.bind(this), this._reject.bind(this))
     }
-    _resolve(val) {
+    _resolve (val) {
         this.status = "fulfilled"
         this.value = val;
         // 执行 onResolved；
@@ -20,13 +20,13 @@ class KPromise {
                 cb && cb(val);
             }
         }
-        let ob = new MutationObserver(run)
-        ob.observe(document.body, {
-            attributes: true
-        })
-        document.body.setAttribute("kkb", Math.random());
+        // let ob = new MutationObserver(run)
+        // ob.observe(document.body, {
+        //     attributes: true
+        // })
+        // document.body.setAttribute("kkb", Math.random());
     }
-    _reject(val) {
+    _reject (val) {
         this.status = "rejected"
         this.value = val;
         const run = () => {
@@ -35,13 +35,13 @@ class KPromise {
                 cb && cb(val);
             }
         }
-        let ob = new MutationObserver(run)
-        ob.observe(document.body, {
-            attributes: true
-        })
-        document.body.setAttribute("kkb", Math.random());
+        // let ob = new MutationObserver(run)
+        // ob.observe(document.body, {
+        //     attributes: true
+        // })
+        // document.body.setAttribute("kkb", Math.random());
     }
-    then(onResolved, onRejected) {
+    then (onResolved, onRejected) {
 
         return new KPromise((resolve, reject) => {
             this.resolveQueue.push(val => {
@@ -57,20 +57,20 @@ class KPromise {
             })
         })
     }
-    catch(onRejected) {
+    catch (onRejected) {
         this.then(undefined, onRejected);
     }
-    static resolve(val) {
+    static resolve (val) {
         return new KPromise(resolve => {
             resolve(val);
         })
     }
-    static reject(val) {
+    static reject (val) {
         return new KPromise((resolve, reject) => {
             reject(val);
         })
     }
-    static all(lists) {
+    static all (lists) {
         let arr = [];
         return new KPromise((resolve) => {
             lists.forEach(item => {
@@ -83,7 +83,7 @@ class KPromise {
             })
         })
     }
-    static race(lists) {
+    static race (lists) {
         return new KPromise((resolve, reject) => {
             lists.forEach(item => {
                 item.then(res => {
@@ -94,7 +94,7 @@ class KPromise {
             })
         })
     }
-    finally(cb) {
+    finally (cb) {
 
     }
 }

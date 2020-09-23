@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+
+    // script / async/await / promise / setTimeout
+
+    console.log('1');
+    async function async1() {               //  1 2 8 13 4 3 9 5 6 10 11 7 12
+        console.log('2');                   // 1 2 4 8 13 3 9 5 6 7 10 11 12
+        await async2();
+        console.log('3');
+    }
+    async function async2() {
+        console.log('4');
+    }
+    //调用async1
+    async1();
+    setTimeout(function () {
+        console.log('5');
+        new Promise(function (resolve) {
+            console.log('6');
+            resolve();
+        }).then(function () {
+            console.log('7');
+        });
+    }, 1000);
+    new Promise(function (resolve, reject) {
+        console.log('8');
+        resolve();
+    }).then(function () {
+        console.log('9');
+    })
+    setTimeout(function () {
+        console.log('10');
+        new Promise(function (resolve) {
+            console.log('11');
+            resolve();
+        }).then(function () {
+            console.log('12');
+        });
+    }, 0);
+    console.log('13');
+
+</script>
+
+</html>

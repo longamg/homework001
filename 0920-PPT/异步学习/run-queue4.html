@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    function testSometing() {           // 5 1 8 2 3 9 6 4 (2,4) 7
+        //s  5 6 8 end  3 2 3 9
+        console.log("1");
+        return "2";
+    }
+    async function testAsync() {
+        console.log("3");
+        return Promise.resolve("4");
+    }
+    async function test() {
+        console.log("5");
+        const v1 = await testSometing();
+        console.log(v1);
+        const v2 = await testAsync();
+        new Promise(function (resolve, reject) {
+            console.log('6');
+            resolve()
+        }).then(function () {
+            console.log('7');
+        })
+        console.log(v2);
+        console.log(v1, v2);
+    }
+    console.log('start');
+    test();
+    var promise = new Promise((resolve) => {
+        console.log("8");
+        resolve("9");
+    });
+    promise.then((val) => {
+        console.log(val)
+    });
+    console.log("end")
+
+</script>
+
+</html>
