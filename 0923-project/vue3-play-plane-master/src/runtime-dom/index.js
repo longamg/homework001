@@ -29,7 +29,7 @@ const renderer = createRenderer({
   parentNode(node) {
     return node.parent;
   },
-  nextSibling() {},
+  nextSibling() { },
   remove(el) {
     if (el.parent) {
       // eslint-disable-next-line no-debugger

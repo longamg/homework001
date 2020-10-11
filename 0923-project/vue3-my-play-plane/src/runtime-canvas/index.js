@@ -2,7 +2,8 @@ import { createRenderer } from "vue";
 import { Container, Sprite, Text, Texture, Graphics } from "pixi.js";
 
 const renderer = createRenderer({
-    createElement (type) {
+
+    createElement(type) {
         // 创建元素
         console.log(type);
         let element;
@@ -24,25 +25,25 @@ const renderer = createRenderer({
         }
         return element;
     },
-    setElementText (node, text) {
+    setElementText(node, text) {
         const canvasText = new Text(text);
         node.addChild(canvasText);
     },
-    insert (el, parent) {
+    insert(el, parent) {
         if (parent) {
             parent.addChild(el);
         }
     },
-    nextSibling () { },
-    parentNode (node) {
+    nextSibling() { },
+    parentNode(node) {
         return node.parent;
     },
-    remove (el) {
+    remove(el) {
         if (el.parent) {
             el.parent.removeChild(el);
         }
     },
-    patchProp (el, key, prevValue, nextValue) {
+    patchProp(el, key, prevValue, nextValue) {
         // console.log(key);
         switch (key) {
             case "texture":
@@ -57,11 +58,11 @@ const renderer = createRenderer({
                 el[key] = nextValue;
         }
     },
-    createComment () {
+    createComment() {
         // canvas 内不需要
     },
 });
 
-export function createApp (rootComponent) {
+export function createApp(rootComponent) {
     return renderer.createApp(rootComponent);
 }
