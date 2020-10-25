@@ -1,0 +1,25 @@
+.div {
+  width: 200px;
+  height: 200px;
+  border: 2px solid #000;
+}
+#box {
+  width: 200px;
+  height: 200px;
+  background: #ccc;
+}
+.box {
+  width: 100px;
+  height: 100px;
+  background: #000;
+  color: #fff;
+}
+body {
+  background: #f1f1f1;
+}
+:global(.public) {
+  font-weight: bold;
+}
+h1.name {
+  color: red;
+}
