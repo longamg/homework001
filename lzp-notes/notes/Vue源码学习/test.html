@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./myJs.js"></script>
+</head>
+<body>
+    asdasdasdasd
+</body>
+<script type="text/javascript">
+   Array.prototype.decimalfy = function() {
+  for (let i = 0; i < this.length; i++) {
+    this[i] = this[i].toFixed(2);
+  }
+};
+
+const digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+for (const index in digits) {
+  console.log(digits[index]);
+}
+</script>
+</html>
